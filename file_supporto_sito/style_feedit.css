@@ -1,0 +1,372 @@
+/* Reset di alcuni elementi per avere consistenza tra i browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Stile del body con font da utilizzare in tutta la pagina, sfondo, e indicazioni su dimensione della riga e del padding*/
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #DDE2DD;
+    color: #DDE2DD;
+    line-height: 1.6;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+/*Stile dell'header e degli elementi che lo compongono*/
+header {
+    background: #496C94;
+    color: #ffffff;
+    padding-left: 1.25%;
+    padding-right: 1.25%;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+}/*Elementi dell'header di tipo flex, allineati al centro vericalmente e orizzontalmente nello spazio a loro disposizione*/
+header figure, header h1, header h2 {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 2.6rem;
+}
+header figure img {
+    width: 100%;
+    max-width: 4rem;
+    height: auto;
+}
+/*Stile degli elementi del menù*/
+nav{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #023047;
+    border-radius: 1rem;   
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+nav ul {
+    list-style-type: none;      /*Elemti della lista disposti orizzontalmente*/
+    display: flex;
+    width: 100%;
+}
+nav ul li{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    border-radius: 0.25rem;
+    color: #DDE2DD;
+    background-color: #023047;
+}
+nav ul li a {
+    color: #DDE2DD;
+    width: 100%;
+    text-align: center;
+}
+nav ul li a:hover{
+    color: #023047;
+}
+#comandoMenu{
+    display: none;      /*Non mostro l'elemento "Menù" su finestre di larghezza > 700px*/
+}
+/*Stile dei tag a, quando il mouse è sopra un elemento, o quando viene cliccato, cambia il colore dello sfondo dell'elemento e il colore del carattere*/
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #9cdbe8;
+}
+a:hover{
+    background-color: #ffffff;
+    border-radius: 0.18rem;
+    color: #023047;
+}
+a:focus{
+    background-color: #ffffff;
+    border-radius: 0.18rem;
+    color: #023047;
+}
+/*elementi di classe "visibile" che sono link e fanno parte del menù di navigazione*/
+.visibile:hover{
+    background-color: #ffffff;
+    border-radius: 0.18rem;
+}
+.visibile:focus{
+    background-color: #ffffff;
+    border-radius: 0.18rem;
+}
+/*Link disabilitati per alcuni elementi del menù (bacheca, scrivi, logout e login) in caso l'utente sia autenticato o non autenticato*/
+.disabilita_link{
+    background-color: #023047;
+    pointer-events: none;
+    cursor: not-allowed; 
+    color: #a9a9a9;
+    text-decoration: none;
+}
+
+/*div dentro la quale sono contenuti tutti gli elementi della pagina che non sono header, nav o footer*/
+.contenitore{
+    background-color: #023047;
+    border-radius: 0.4rem;
+    margin-bottom: 1%;
+}
+/*Margini per i componenti di contenitore che non sono riservati all'ultimo tweet dell'utente*/
+.contenitore > div:not(#ultimo_tweet) {
+    padding: 1rem; 
+    flex: 1;
+}
+
+/*Stile per la div riservata all'ultimo tweet*/
+#ultimo_tweet{
+    padding: 1rem;
+    display: flex;
+    clear: both;
+    flex: auto;
+    background-color: transparent;
+    font-size: 1.1rem;
+}
+#span_ultimo_tweet{
+    padding: 0.25rem;
+    border-radius: 0.3125rem;
+    background-color: #ffffff;
+    color: #023047;
+}
+#username_ultimo_tweet{
+    font-weight: bold;
+}
+#testo_ultimo_tweet{
+    margin-left: 2rem;      /*Separo leggermente lo username (in grassetto) dal testo dell'ultimo tweet*/
+}
+
+/*Stile dei bottoni delle pagine*/
+button {
+    color: #fff;
+    background: #3069A0;
+    padding: 0.4rem 1.1rem;
+    text-align: center;
+    border-radius: 0.3125rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+button:hover {
+    background: #318EAE;
+    cursor: pointer
+}
+button:focus {
+    background: #318EAE;
+}
+/*Stile per i tag <p> che contengono le informazioni per le regular expression di username e password nella pagina registra.php*/
+.info_regex{
+    width: 100%;
+}
+form {
+    width: 100%;
+}
+form input{
+    font-size: 1rem;
+}
+form textarea{
+    width: 100%;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 0.3125rem;
+}
+form input[type="text"], input[type="password"]{
+    width: 100%;
+    padding: 0.625rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.3125rem;
+    clear: both;
+    display: block;     /*Una riga per ogni campo del form*/
+}
+form input[type="date"]{
+    width: 34%;
+    padding: 0.625rem;
+    border: 1px solid #ddd;
+    border-radius: 0.3125rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /*Specifico il carattere per i gli input di tipo date*/
+}
+form p{             /*Specifico che i tag <p> in un form non devono avere padding (quando compaiono le info_regex specifico il padding nel file javaScript)*/
+    padding: 0;
+}
+
+/*Filtro temporale della pagina bacheca*/
+#filtro_temporale{
+    width: 100%;
+    align-items: center;
+}
+
+/*Stile per le tabelle (bacheca e scopri)*/
+table {
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: 1rem;
+    table-layout: fixed;
+    background-color: #f2f8fa;
+    border-radius: 0.2rem;
+    color: #023047;
+}
+tr{
+    width: 100%;
+}
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+    word-wrap: break-word; /* Permetto di andare a capo se lo spazio a disposizione non è sufficiente */
+    overflow-wrap: break-word;
+    border-bottom: 1px solid #fff;
+}
+th{
+    font-size: 1.05rem;
+    padding: 0%;
+    background-color: #ffffff
+}
+/* Per specificare la larghezza delle colonne */
+colgroup col:nth-child(1) {
+    width: 20%;
+}
+colgroup col:nth-child(2) {
+    width: 30%;
+}
+colgroup col:nth-child(3) {
+    width: 50%;
+}
+table caption{
+    font-weight: bold;
+    color: #DDE2DD;
+}
+/*Una riga ogni due ha lo sfondo leggermente diverso dalle altre per facilitare la lettura*/
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+p{
+    padding-bottom: 0.5rem;
+}
+
+/*Stile del footer: elementi allineati orizzontalmente e verticalmente*/
+footer {
+    margin-top: 1%;
+    background: #496C94;
+    color: #fff;
+    padding-top: 0.5%;
+    padding-left: 1.25%;
+    padding-right: 1.25%;
+    padding-bottom: 0.5%;
+    font-size: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+footer footer h1, footer p {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+footer p{
+    padding-bottom: 0;
+}
+
+
+/* Media query per finestre di dimensione minore di 600px, riduco il padding del body e modifico i margini degli altri elementi*/
+@media (max-width: 600px) {
+    body {
+        padding: 2%;
+    }
+    /*Dispongo gli elementi dell'header verticalmente*/
+    header {
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+        flex-direction: column;
+        align-items: center;
+    }
+    header figure, header h1, header h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .contenitore{
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+
+    footer {
+        margin-top: 1.5%;
+        flex-direction: column;
+        align-items: center;
+    }
+    footer h1, footer p{
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px){
+    /*Menù a comparsa se la larghezza della pagina è minore di 700px.
+    Mantengo i margini come sui dispositivi più grandi, ma il menù si comporta come su uno schermo verticale*/
+    nav{
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    #comandoMenu{
+        display: flex;      /*Rendo visibile il comando Menù (cliccabile) e adeguo il suo stile allo stile di un tag <a> del menù*/
+        cursor: pointer;
+    }
+    #comandoMenu:hover{
+        background-color: #ffffff;
+        color: #023047;
+    }
+    #comandoMenu:focus{
+        background-color: #ffffff;
+        color: #023047;
+    }
+    nav ul li{
+        display: none;          /*Nascondo gli elementi del nav a meno che non siano di classe "visibile"*/
+    }
+    .visibile{
+        display: flex;
+        color: #023047;
+    }
+    .visibile a{
+        width: 100%;            /*Aumento la dimensione dei tag <a> visibili (nel menù) per rendere cliccabile tutta la riga*/
+        text-align: center;
+    }
+}
+
+/*Rendo la pagina printer friendly: inverto i colori impostando lo sfondo bianco e riducendo il padding degli elementi*/
+@media print {
+    body{
+        background-color: #ffffff;
+        color: #023047;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    header{
+        background-color: #DDE2DD;
+    }
+    td{
+        padding: 0;
+    }
+    footer{
+        background-color: #DDE2DD;
+    }
+}

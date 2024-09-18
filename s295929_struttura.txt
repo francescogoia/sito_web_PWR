@@ -1,0 +1,7 @@
+home.php
+registra.php, form:form_registra, text:nome, text:cognome, text:data_nascita, text:indirizzo, text:username, password:password, (button)submit:button_invia, (button)reset:button_cancella
+scrivi.php, form:form_scrivi_tweet, textarea:testo_tweet, (button)submit:form_scrivi_invia, (button)reset:form_scrivi_reset
+bacheca.php, form:filtro_temporale, date:data_0, date:data_1, (button)submit:button_seleziona_date
+login.php, form:form_login, text:username, password:password, (button)submit:button_invia, (button)reset:button_reset, form:form_no_autenticazione, (button)submit:button_no_registrazione
+scopri.php
+logout.php, form:form_logout, (button)submit:button_logout
