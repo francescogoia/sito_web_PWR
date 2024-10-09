@@ -1,0 +1,101 @@
+# Social Network Website - PHP Development
+
+## Overview
+This project is a web application designed for a social network styled like Twitter (X). The website is developed using PHP and MySQL technologies, structured according to the following specifications.
+
+## Features
+
+### Pages
+
+1. **HOME (`home.php`)**
+   - Provides a general introduction to the site and its available functionalities.
+
+2. **REGISTER (`registrazione.php`)**
+   - Allows new users to register by providing the following details:
+     - **First name** (`name`): 2-12 characters, starting with an uppercase letter, only letters and spaces allowed.
+     - **Last name** (`surname`): 2-16 characters, starting with an uppercase letter, only letters and spaces allowed.
+     - **Date of birth** (`birthdate`): Format `yyyy-mm-dd`.
+     - **Address** (`address`): Format `Street/Course/Square/Alley name civicNumber` (e.g., "Course Duca degli Abruzzi 24").
+     - **Username** (`nick`): 4-10 characters, letters, numbers, '-', or '_', must start with a letter.
+     - **Password** (`password`): 8-16 characters, must contain at least 1 uppercase, 1 lowercase letter, 2 numbers, and 2 special characters from the following: `#!?@%^&*+=`.
+
+3. **LOGIN (`login.php`)**
+   - Allows users to log in with their username and password.
+   - Includes two buttons:
+     - **CANCEL**: Clears all fields.
+     - **SUBMIT**: Sends data to the server for access control.
+   - If login fails, an error message is shown, and the user is invited to try again.
+   - Includes a "Continue without logging in" button to bypass authentication.
+   - After a successful login:
+     - The username and the first 30 characters of the last tweet will be displayed in the top left of every page.
+     - The *username* field will be prefilled in subsequent visits within 16 hours of the last successful login.
+
+4. **WALL (`bacheca.php`)**
+   - Displays a list of all the user’s tweets, showing:
+     - Author's name.
+     - Date and time (server time).
+     - Tweet content.
+   - Tweets are ordered by the date of posting.
+   - If no tweets are available, a message encourages the user to post a tweet.
+   - A filter allows users to view tweets within a specific time range.
+
+5. **WRITE (`scrivi.php`)**
+   - Allows users to write and submit a tweet (up to 140 characters).
+   - After submitting, the user is redirected to the WALL page.
+
+6. **DISCOVER (`scopri.php`)**
+   - Accessible to users who bypass login, this page displays tweets from all users.
+
+### Menu
+- All pages include a common menu for navigating to:
+  - HOME
+  - REGISTER
+  - WRITE
+  - WALL
+  - LOGIN
+  - DISCOVER
+- The **WALL** and **WRITE** options are always visible but only active for authenticated users.
+- The **LOGOUT** option allows users to log out and return to anonymous status; it is only available when the user is authenticated.
+- The **LOGIN** option is inactive for authenticated users.
+
+### Error Handling
+- Non-authenticated users attempting to access restricted pages (WALL or WRITE) by changing the URL will see an "identity not verified" error message.
+
+## Database Structure
+
+### Users Table (`utenti`)
+- **name**: User's first name.
+- **surname**: User's last name.
+- **birthdate**: User's date of birth (format `yyyy-mm-dd`).
+- **address**: User's address (must start with one of: "Street", "Course", "Square", "Alley", followed by the street name and number).
+- **username**: User's unique identifier (primary key).
+- **password**: User's password.
+
+### Tweets Table (`tweets`)
+- **username**: The username of the user who posted the tweet.
+- **date**: The date the tweet was posted.
+- **text**: The content of the tweet.
+
+## Styling and Layout
+- The site must have a consistent design across all pages, with formatting managed through a stylesheet.
+- Each page should include:
+  - A header displaying the site’s name.
+  - A footer showing the page file name and author.
+- These details should be generated automatically where possible.
+
+## Installation and Standards
+- The site must be installable in any web server directory, with no dependencies on specific paths or network addresses.
+- All content must conform to W3C standards.
+- Follow best practices for web programming as taught in the course.
+
+## Database Access
+- Database access should minimize privileges for each page.
+- Use the predefined users in the database (`normal` and `privileged`), and do not use the `admin` user or any other undefined users in the provided database.
+
+---
+
+**Author**: [Your Name Here]  
+**Course**: Web Services and Computer Networks Design  
+**University**: Politecnico di Torino  
+**Professors**: Prof. Andrea Atzeni, Eng. Lorenzo Ferro  
+**Academic Year**: 2023-2024
